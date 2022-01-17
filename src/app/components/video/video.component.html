@@ -1,0 +1,21 @@
+<input type="text" class="form-control w-25" placeholder="YouTube Video URL..." #youtubeUrl>
+<button class="btn btn-primary" (click)="getTitleAndDescription(youtubeUrl)">Get Title and Description</button>
+
+<input #title type="text" class="form-control" placeholder="Title..." disabled>
+<input #description type="text" class="form-control" placeholder="Description..." disabled>
+
+<button class="btn btn-success" (click)="onAdd(youtubeUrl)">Add New Video</button>
+
+<div *ngFor="let video of videos">
+  <div class="card card body p-3 border border-primary my-5">
+    <div class="row">
+      <div class="col-2">
+        <img src={{video.img}} alt="" class="img-fluid">
+      </div>
+      <div class="col-4">
+        <h3><a target="_blank" href={{youtubeUrl.value}}>{{ video.title }}</a></h3>
+        <p>{{ video.description }}</p>
+      </div>
+    </div>
+  </div>
+</div>
